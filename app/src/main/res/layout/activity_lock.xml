@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="32dp">
+
+    <TextView
+        android:id="@+id/lockTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="64sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/passwordInput"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="#888888"
+        android:hint="パスワード"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textColorHint="#777777"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="#FF5A5A"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/unlockButton"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="パスワードで解除" />
+
+    <Button
+        android:id="@+id/faceButton"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="顔認証で解除"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/emergencyButton"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="緊急通報"
+        android:textColor="#FF5A5A" />
+</LinearLayout>

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="毎晩21:30に全てのアプリをロックします。パスワードか顔認証で解除するまで使えません（電話・緊急通報・アラームは使えます）。" />
+
+        <!-- 次にやること -->
+        <TextView
+            android:id="@+id/nextStep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="?attr/colorPrimaryContainer"
+            android:padding="16dp"
+            android:textColor="?attr/colorOnPrimaryContainer"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <!-- オン・オフ（オフにするときはパスワードが要る） -->
+        <com.google.android.material.materialswitch.MaterialSwitch
+            android:id="@+id/enabledSwitch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="21:30のロック"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 1. パスワード -->
+        <TextView
+            android:id="@+id/step1Title"
+            style="@style/StepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="解除に使うパスワードです。紙にメモして、スマホを使う人に見えない所にしまってください。忘れると解除できなくなります。" />
+
+        <EditText
+            android:id="@+id/currentPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="今のパスワード"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/newPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="新しいパスワード（4文字以上）"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/newPassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="もう一度同じパスワード"
+            android:importantForAutofill="no"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/savePasswordButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="パスワードを保存" />
+
+        <!-- 2. 重ねて表示 -->
+        <TextView
+            android:id="@+id/step2Title"
+            style="@style/StepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下のボタンを押すと設定が開きます。「21:30ロック」のスイッチをオンにして、戻るボタンでこの画面に戻ってください。" />
+
+        <Button
+            android:id="@+id/overlayButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="設定を開く" />
+
+        <!-- 3. 電池 -->
+        <TextView
+            android:id="@+id/step3Title"
+            style="@style/StepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="スマホが勝手にこのアプリを止めないようにします。ボタンを押して、出てきた画面で「許可」を押してください。" />
+
+        <Button
+            android:id="@+id/batteryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="許可の画面を出す" />
+
+        <!-- 4. ユーザー補助 -->
+        <TextView
+            android:id="@+id/step4Title"
+            style="@style/StepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ボタンを押すと「ユーザー補助」が開きます。「インストール済みのアプリ」（機種によっては「ダウンロードしたアプリ」）→「21:30ロック」→ スイッチをオン →「許可」の順に押してください。" />
+
+        <Button
+            android:id="@+id/accessibilityButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ユーザー補助を開く" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="スイッチがグレーで押せないとき：下のボタンでアプリ情報を開き、右上の「︙」→「制限付き設定を許可」を押してから、もう一度上のボタンを押してください。" />
+
+        <Button
+            android:id="@+id/appInfoButton"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="アプリ情報を開く" />
+
+        <!-- 5. ためす -->
+        <TextView
+            android:id="@+id/step5Title"
+            style="@style/StepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="黒いロック画面が出ます。パスワードか顔認証で解除できることを確かめてください。" />
+
+        <Button
+            android:id="@+id/testButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="今すぐロックしてためす" />
+
+        <!-- 困ったとき -->
+        <TextView
+            style="@style/StepTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="困ったとき" />
+
+        <TextView
+            style="@style/StepText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="パスワードを忘れて顔認証も通らないときは、スマホを「セーフモード」で起動するとこのアプリが止まります。そのあと「設定 → アプリ → 21:30ロック → アンインストール」で消せます。セーフモードの入り方は機種名で検索してください（多くは電源ボタン長押し →「電源を切る」を長押し）。" />
+    </LinearLayout>
+</ScrollView>
