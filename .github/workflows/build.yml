@@ -3,6 +3,10 @@ name: Build APK
 on:
   push:
     branches: [main]
+    # ページや説明文だけの変更ではアプリを作り直さない
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
   workflow_dispatch:
 
 permissions:
